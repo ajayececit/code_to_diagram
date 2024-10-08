@@ -7,7 +7,7 @@ from diagrams.azure.compute import VM
 from diagrams.onprem.compute import Server
 from diagrams.onprem.client import User
 from diagrams.generic.network import Firewall, Switch, Router
-from diagrams.generic.storage import Storage  # Use generic storage instead of NAS
+from diagrams.generic.storage import Storage  
 
 with Diagram("Multi-Cloud and On-Prem Architecture", show=False):
 
@@ -18,10 +18,10 @@ with Diagram("Multi-Cloud and On-Prem Architecture", show=False):
         router = Router("Router")
         switch = Switch("Switch")
         onprem_server = Server("Local Server")
-        nas_storage = Storage("Storage")  # Generic storage replacing NAS
+        storage = Storage("Storage")
 
         users >> firewall >> router >> switch >> onprem_server
-        onprem_server >> nas_storage
+        onprem_server >> storage
 
     # AWS infrastructure
     with Cluster("AWS Cloud"):
